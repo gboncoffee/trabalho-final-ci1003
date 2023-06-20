@@ -29,14 +29,51 @@ h1#header-title {
     padding: 0;
 }
 
+div#main-view {
+    margin-left: 10%;
+    margin-right: 10%;
+    display: grid;
+    column-gap: 10%;
+    grid-auto-flow: column;
+    grid-template-columns: 50% 50%;
+}
+
+div#image {
+    overflow: auto;
+}
+
+img {
+    float: right;
+}
+
+div#button {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    font-size: 18pt;
+    border: solid 4px #1e1f29;
+    background-color: #44475a;
+    color: #f8f8f2;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+p {
+    text-indent: 40pt;
+    text-align: justify;
+}
+
 footer {
     background-color: #1e1f29;
     width: 100%;
     position: absolute;
     bottom: 0;
     left: 0;
-    line-height: 35px;
-    height: 75px;
+    line-height: 25px;
+    height: 60px;
+    font-size: 10pt;
 }
 
 a.bottom-link {
