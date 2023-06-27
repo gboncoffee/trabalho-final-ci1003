@@ -80,3 +80,11 @@ a.bottom-link {
     color: #bd93f9;
     margin-left: 12px;
 }
+
+input#number-input {
+    background-color: #1e1f29;
+    color: #f8f8f2;
+    font-family: monospace;
+    font-size: 30pt;
+    max-width: 100px;
+}
