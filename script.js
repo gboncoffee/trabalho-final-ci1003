@@ -17,35 +17,128 @@ const teste_de_einstein = {
     ],
 }
 
-// {{{
-function fase4() {
-    document.querySelector('#header-title').innerHTML = 'Fase 4: Quiz Final'
+// fase 4 {{{
+function falhar_botao(id) {
+    document.querySelector(id).style.border = 'solid 4px #ff5555'
+}
 
-    //
-    // TODO
-    //
+function acertar_botao(id) {
+    document.querySelector(id).style.border = 'solid 4px #50fa7b'
+}
+
+function cria_botoes(pergunta, opcoes, certa) {
+    let botoes = ''
+    for (i = 0; i < opcoes.length; i++) {
+        id = pergunta + i
+        if (i != certa) {
+            botoes += `
+                <div id="button">
+                    <button type="button" id="${id}" onclick="falhar_botao('${'#' + id}')">${opcoes[i]}</button>
+                </div>
+            `
+        } else {
+            botoes += `
+                <div id="button">
+                    <button type="button" id="${id}" onclick="acertar_botao('${'#' + id}')">${opcoes[i]}</button>
+                </div>
+            `
+        }
+    }
+    return botoes
+}
+
+function fase4() {
+    const opcoes_1 = [
+        'Ada Lovelace',
+        'Giorgian de Arrascaeta',
+        'John Von Neumann',
+        'Carmen Hara'
+    ]
+    const opcoes_2 = [
+        'Alan Turing',
+        'Marcos Castilho',
+        'Grace Hopper',
+        'Ronald Reagan'
+    ]
+    const opcoes_3 = [
+        'Daniel Oliveira',
+        'Margaret Hamilton',
+        'Albert Einstein',
+        'Ronaldo de Assis Moreira'
+    ]
+    const opcoes_4 = [
+        'Hedy Lamarr',
+        'Carlos Maziero',
+        'Nakamoto Suzuka',
+        'David Hilbert'
+    ]
+    const opcoes_5 = [
+        'Alan Turing',
+        'Benedict Cumberbatch',
+        'Eduardo Hoefel',
+        'Mavis Batey'
+    ]
+
+    document.querySelector('#header-title').innerHTML = 'Fase 4: Quiz Final'
+    document.querySelector('#main-view').innerHTML = `
+        <div id="text">
+            <p>
+            Programar um computador significa criar uma sequência de instruções
+            que ele consiga reproduzir. Quem foi a primeira pessoa programadora
+            do mundo?
+            </p>
+            ${cria_botoes('primeira-programadora', opcoes_1, 0)}
+            <p>
+            Linguagens de programação são línguas, como inglês e português, com
+            o propósito específico de definir instruções que tanto o computador
+            quanto os programadores consigam entender facilmente. Quem foi que
+            criou a primeira linguagem de programação?
+            </p>
+            ${cria_botoes('assembly', opcoes_2, 2)}
+            <p>
+            Para levar seres humanos à Lua, o foguete Apollo XI precisou de
+            computadores. Quem foi a pessoa que programou os computadores do
+            foguete?
+            </p>
+            ${cria_botoes('apollo', opcoes_3, 1)}
+            <p>
+            O Wi-Fi é um sistema que permite computadores se comunicarem sem
+            estarem conectados por fios. Dessa maneira, podemos usar a internet
+            em celulares ou notebooks sem esses estarem ligados diretamente ao
+            fio de internet. Quem foi que inventou a tecnologia necessária para
+            isso?
+            </p>
+            ${cria_botoes('wifi', opcoes_4, 0)}
+            <p>
+            Cifras são códigos usados para esconder mensagens. Quem foi que
+            decifrou a cifra que os navios italianos usavam na II Guerra
+            Mundial?
+            </p>
+            ${cria_botoes('cifra', opcoes_5, 3)}
+        </div>
+    `
 }
 // }}}
 
 // fase 3 {{{
 function testa_fase3() {
     if (
-        document.querySelector('#pais-ada')           == teste_de_einstein.paises[0] &&
-        document.querySelector('#pais-lamarr')        == teste_de_einstein.paises[1] &&
-        document.querySelector('#pais-grace')         == teste_de_einstein.paises[2] &&
-        document.querySelector('#pais-maggie')        == teste_de_einstein.paises[3] &&
-        document.querySelector('#nascimento-ada')     == teste_de_einstein.nascimento[0] &&
-        document.querySelector('#nascimento-lamarr')  == teste_de_einstein.nascimento[1] &&
-        document.querySelector('#nascimento-grace')   == teste_de_einstein.nascimento[2] &&
-        document.querySelector('#nascimento-maggie')  == teste_de_einstein.nascimento[3] &&
-        document.querySelector('#legado-ada')         == teste_de_einstein.legado[0] &&
-        document.querySelector('#legado-lamarr')      == teste_de_einstein.legado[1] &&
-        document.querySelector('#legado-grace')       == teste_de_einstein.legado[2] &&
-        document.querySelector('#legado-maggie')      == teste_de_einstein.legado[3] &&
-        document.querySelector('#curiosidade-ada')    == teste_de_einstein.curiosidade[0] &&
-        document.querySelector('#curiosidade-lamarr') == teste_de_einstein.curiosidade[1] &&
-        document.querySelector('#curiosidade-grace')  == teste_de_einstein.curiosidade[2] &&
-        document.querySelector('#curiosidade-maggie') == teste_de_einstein.curiosidade[3]
+        document.querySelector('#pais-ada').value           == teste_de_einstein.paises[0] &&
+        document.querySelector('#pais-lamarr').value        == teste_de_einstein.paises[1] &&
+        document.querySelector('#pais-grace').value         == teste_de_einstein.paises[2] &&
+        document.querySelector('#pais-maggie').value        == teste_de_einstein.paises[3] &&
+        document.querySelector('#nascimento-ada').value     == teste_de_einstein.nascimento[0] &&
+        document.querySelector('#nascimento-lamarr').value  == teste_de_einstein.nascimento[1] &&
+        document.querySelector('#nascimento-grace').value   == teste_de_einstein.nascimento[2] &&
+        document.querySelector('#nascimento-maggie').value  == teste_de_einstein.nascimento[3] &&
+        document.querySelector('#legado-ada').value         == teste_de_einstein.legado[0] &&
+        document.querySelector('#legado-lamarr').value      == teste_de_einstein.legado[1] &&
+        document.querySelector('#legado-grace').value       == teste_de_einstein.legado[2] &&
+        document.querySelector('#legado-maggie').value      == teste_de_einstein.legado[3] &&
+        document.querySelector('#curiosidade-ada').value    == teste_de_einstein.curiosidade[0] &&
+        document.querySelector('#curiosidade-lamarr').value == teste_de_einstein.curiosidade[1] &&
+        document.querySelector('#curiosidade-grace').value  == teste_de_einstein.curiosidade[2] &&
+        document.querySelector('#curiosidade-maggie').value == teste_de_einstein.curiosidade[3]
     ) {
         fase4()
     } else {
@@ -252,7 +345,7 @@ function fase2() {
 }
 // }}}
 
-// {{{
+// fase 1 {{{
 function testa_fase1() {
     if (document.querySelector('#number-input').value == 54) {
         fase2()
@@ -290,32 +383,3 @@ function fase1() {
     `
 }
 // }}}
-
-function tela_inicial() {
-    document.querySelector('#main-view').innerHTML = `
-        <div id="text">
-            <p>
-            Aqui vai o texto explicando brevemente sobre o que é computação e o
-            funcionamento do jogo.
-            </p>
-            <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <div id="button">
-                <button type="button" onclick="fase1()">Jogar!</button>
-            </div>
-        </div>
-        <div id="image">
-            <img src="lorem.jpg" id="content-image">
-            <p>
-            Legenda da imagem.
-            </p>
-        </div>
-    ` 
-}
