@@ -347,7 +347,7 @@ function fase2() {
 
 // fase 1 {{{
 function testa_fase1() {
-    if (document.querySelector('#number-input').value == 54) {
+    if (document.querySelector('#number-input').value == 52) {
         fase2()
     } else {
         document.querySelector('#pergunta').innerHTML = 'Errou! Tente novamente!'
